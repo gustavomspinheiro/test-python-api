@@ -5,7 +5,6 @@ from secure import authenticate, identity
 from resources.user import UserRegister
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
-from db import db
 import sqlite3
 
 app = Flask(__name__)
@@ -17,10 +16,6 @@ db.init_app(app)
 api = Api(app)
 
 jwt = JWT(app, authenticate, identity)
-
-@app.before_first_request
-def createTables():
-    db.create_all()
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')
