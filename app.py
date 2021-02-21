@@ -6,7 +6,7 @@ from resources.user import UserRegister
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 from db import db
-
+import sqlite3
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'gustavo'
@@ -31,9 +31,5 @@ api.add_resource(StoreList, '/stores')
 
 if __name__ == "__main__":
     app.run(port=500, debug=True)
-
-#4
-    #create stores endpoints in Postman(get, post and delete) and get a list of stores
-    #tests the application in the Postman.
     
 
