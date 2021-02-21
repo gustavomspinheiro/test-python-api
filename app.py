@@ -5,14 +5,12 @@ from secure import authenticate, identity
 from resources.user import UserRegister
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
-import sqlite3
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'gustavo'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db.init_app(app)
 api = Api(app)
 
 jwt = JWT(app, authenticate, identity)
